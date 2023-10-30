@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      form {
+        border: 4px solid;
+        background-color: skyblue;
+        /* display: inline-block; */
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      .gender {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        padding: 10px;
+      }
+
+      .forPadding {
+        padding: 5px;
+        text-align: justify;
+      }
+    </style>
+    <script>
+      function changeBackgroundcolor() {
+        let cb = event.target;
+        cb.setAttribute("style", "background-color:lightgreen");
+      }
+
+      function resetBackgroundcolor() {
+        let reset = event.target;
+        reset.setAttribute("style", "background-color:white");
+      }
+
+      function changeSubmitButtonColor() {
+        let CBC = event.target;
+        CBC.setAttribute("style", "background-color:lightgreen");
+      }
+
+      function resetSubmitButtonColor() {
+        let resetcolor = event.target;
+        resetcolor.setAttribute("style", "background-color:white");
+      }
+
+      function chnageCancelButtonColor() {
+        let ccbc = event.target;
+        ccbc.setAttribute("style", "background-color:red");
+      }
+
+      function resetCancelButtonColor() {
+        let rcbc = event.target;
+        rcbc.setAttribute("style", "background-color:white");
+      }
+
+      function changeColorSelectedOpt() {
+        let ccso = event.target;
+        ccso.setAttribute("style", "background-color:green");
+      }
+
+      function validate() {
+        let flag1 = validateFname();
+        let flag2 = validateLname();
+        let flag3 = validateDate();
+        let flag4 = validateCountry();
+        let flag5 = validateGender();
+        let flag6 = validateProfession();
+        let flag7 = validateEmail();
+        let flag8 = validateNumber();
+        // let flag9 = validateReset();
+        return (
+          flag1 && flag2 && flag3 && flag4 && flag5 && flag6 && flag7 && flag8 
+        );
+      }
+
+      function validateFname() {
+        let fname = document.getElementById("nm").value;
+
+        if (fname === "" || fname.trim().length < 3) {
+          document.getElementById("FnameError").innerHTML =
+            "Enter valid first name...!!";
+          return false;
+        }
+        document.getElementById("FnameError").innerHTML = "";
+        return true;
+      }
+
+      function validateLname() {
+        let lname = document.getElementById("lnm").value;
+
+        if (lname === "" || lname.trim().length < 3) {
+          document.getElementById("LnameError").innerHTML =
+            "Enter valid last name...!!";
+          return false;
+        }
+        document.getElementById("LnameError").innerHTML = "";
+        return true;
+      }
+
+      function validateDate() {
+        let date = document.getElementById("dob").value;
+
+        if (date === "") {
+          document.getElementById("DateError").innerHTML =
+            "Enter valid date...!!";
+          return false;
+        }
+        document.getElementById("DateError").innerHTML = "";
+        return true;
+      }
+
+      function validateCountry() {
+        let country = document.getElementById("country").value;
+
+        if (country === "") {
+          document.getElementById("CountryError").innerHTML =
+            "Please Select Country...!!";
+          return false;
+        }
+        document.getElementById("CountryError").innerHTML = "";
+        return true;
+      }
+
+      function validateGender() {
+        let gender = document.getElementById("gen").value;
+
+        if (gen === "") {
+          document.getElementById("genderError").innerHTML =
+            "Please select gender..!!";
+          return false;
+        }
+      }
+
+      function validateProfession() {
+        let prof = document.getElementById("prf").value;
+
+        if (prof === "") {
+          document.getElementById("prfError").innerHTML =
+            "Please Enter Profession..!!";
+          return false;
+        }
+        document.getElementById("prfError").innerHTML = "";
+        return true;
+      }
+
+      function validateEmail() {
+        let em = document.getElementById("email").value;
+
+        if (em === "") {
+          document.getElementById("emailError").innerHTML =
+            "Please Enter Email...!!";
+          return false;
+        }
+        document.getElementById("emailError").innerHTML = "";
+        return true;
+      }
+
+      function validateNumber() {
+        let num = document.getElementById("MobNum").value;
+
+        if (num === "" || num.trim().length < 10 || num !== "a-z") {
+          document.getElementById("MobNumError").innerHTML =
+            "Enter valid Mobile Number";
+          return false;
+        }
+        document.getElementById("MobNumError").innerHTML = "";
+        return true;
+      }
+
+//       function validateReset() {
+//         // validation code
+//         if (valid) {
+//           // show popup with selected values
+//           // reset form
+//           return true;
+//         } else {
+//           return false;
+//         }
+//       }
+
+//       function validateForm() {
+//   // validation code
+//   if (valid) {
+//     // show popup with selected values
+//     var name = document.getElementById("Fname").value;
+//     var email = document.getElementById("email").value;
+//     var gender = document.querySelector('input[name="gender"]:checked').value;
+//     var message = "Fname: " + name + "\nEmail: " + email + "\nGender: " + gender;
+//     alert(message);
+//     // reset form
+//     document.getElementById("myForm").reset();
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+//       function resetForm() {
+//         document.getElementById("myForm").reset();
+//       }
+    </script>
+  </head>
+
+  <body style="display: inline-flexbox; padding: 10px">
+    <form onsubmit="return validate()" style="padding: 10px">
+      <div style="text-align: justify">
+        <h2><b>Customer Survey Form</b></h2>
+
+        <div class="forPadding">
+          <label for="FName" style="padding: 10px">First Name : </label>
+          <input
+            type="text"
+            id="nm"
+            class="nm"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            autofocus
+            placeholder="Enter First name here"
+          />
+          <div id="FnameError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="LName" style="padding: 10px">Last Name : </label
+          ><input
+            type="text"
+            id="lnm"
+            class="lnm"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            placeholder="Enter Last name here"
+          />
+          <div id="LnameError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="DOB" style="padding: 10px; box-sizing: content-box"
+            >D.O.B : </label
+          ><input
+            type="date"
+            id="dob"
+            class="dob"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            placeholder="DD/MM/YY"
+          />
+          <div id="DateError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="Country" style="padding: 10px">Country : </label>
+
+          <select
+            class="Country"
+            name="country"
+            type=""
+            id="country"
+            class="country"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            placeholder="Enter Last name here"
+          >
+            <option value="">Select Country</option>
+            <option value="India">India</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Australia">Australia</option>
+          </select>
+          <div id="CountryError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="Gender" style="padding: 10px">Gender :</label>
+
+          Male
+          <input type="radio" name="gender" value="male" id="gen" class="gen" />
+
+          Female
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            id="gen"
+            class="gen"
+          />
+
+          <div id="genError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="Profession" style="padding: 10px; box-sizing: content-box"
+            >Profession :
+          </label>
+          <input
+            type="text"
+            id="prf"
+            class="prf"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            autofocus
+            placeholder="Enter Profession"
+          />
+          <div id="prfError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="Email" style="padding: 10px">Email : </label>
+          <input
+            type="text"
+            id="email"
+            class="email"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            autofocus
+            placeholder="Enter Email"
+          />
+          <div id="emailError" style="color: red"></div>
+        </div>
+
+        <div class="forPadding">
+          <label for="mobileNumber" style="padding: 10px"
+            >Mobile Number : </label
+          ><input
+            type="text"
+            id="MobNum"
+            class="MobNum"
+            onfocus="changeBackgroundcolor(event)"
+            onblur="resetBackgroundcolor(event)"
+            placeholder="Enter Number"
+          />
+          <div id="MobNumError" style="color: red"></div>
+        </div>
+
+        <div style="padding: 10px; padding-bottom: 5px; text-align: left">
+          <button
+            type="submit"
+            id="btn"
+            onfocus="changeSubmitButtonColor(event)"
+            onblur="resetSubmitButtonColor(event)"
+          >
+            Submit
+          </button>
+        </div>
+        <div style="padding: 10px; padding-bottom: 5px; text-align: justify">
+          <button
+            type="reset"
+            id="btn1"
+            onclick="resetForm()"
+            onfocus="chnageCancelButtonColor(event)"
+            onblur="resetCancelButtonColor(event)"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

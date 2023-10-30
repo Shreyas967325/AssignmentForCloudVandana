@@ -1,0 +1,59 @@
+.bg-gray{
+    background: gray;
+}
+
+.mx-auto{
+    margin: auto;
+}
+
+.container,.allBtn{
+    border: 2px solid black;
+}
+
+.allBtn{
+    background-color: black;
+}
+
+.mg-20{
+    padding: 7px 4px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: small;
+}
+
+.forGray{
+    background-color: gray;
+    border: 2px solid black;
+}
+
+.btn{
+    padding: 20px;
+    margin: 0 3px;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+   
+}
+
+.btn1{
+    background-color: aquamarine;
+    color: black;
+}
+
+.flex{
+    display: flex;
+} 
+
+.flex-col{
+    flex-direction: column;
+}
+
+.items-center{
+    align-items: center;
+}
+
+.row{
+    margin: 8px 0;
+}
+
